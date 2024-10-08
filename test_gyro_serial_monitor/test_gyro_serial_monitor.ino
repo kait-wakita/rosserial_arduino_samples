@@ -9,7 +9,7 @@
 void setup() {
   gyro_init();
   
-  Serial.begin(9600);
+  Serial.begin(19200);
 }
 
 
@@ -98,7 +98,7 @@ float yaw_measure() {
   gyro_z = -gzRaw / 32.8 ;
 
 
-  gyro_z -= 3.00; // ad hoc bias compensation
+  gyro_z -= 0.70; // ad hoc bias compensation
 
   return(gyro_z);
 }

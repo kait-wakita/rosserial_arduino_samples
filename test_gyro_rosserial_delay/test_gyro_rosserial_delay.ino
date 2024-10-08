@@ -30,7 +30,7 @@ void setup() {
 void loop() {
   static unsigned long tm = millis();
   static unsigned long tm1 = 0;
-  float yawrate, angle;
+  static float yawrate, angle;
   
   tm = millis();
   yawrate = yaw_measure();
@@ -43,7 +43,7 @@ void loop() {
   pub_angle.publish( &msg_angle );
     
   nh.spinOnce();
-  delay(500);
+  delay(200);
 }
 
 
@@ -111,7 +111,7 @@ float yaw_measure() {
   gyro_z = -gzRaw / 32.8 ;
 
 
-  gyro_z -= 3.00; // ad hoc bias compensation
+  gyro_z -= 0.70; // ad hoc bias compensation
 
   return(gyro_z);
 }
